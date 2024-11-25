@@ -7,9 +7,9 @@ const ProductCard = ({product}) => {
     const navigate = useNavigate();
   
     return (
-        <div className='productCard w-[15rem] m-3 transition-all cursor-pointer' onClick={ ()=> navigate(`/product/${5}`)}>
+        <div className='productCard w-[15rem] m-3 transition-all cursor-pointer overflow-hidden rounded-lg' onClick={ ()=> navigate(`/product/${5}`)}>
 
-            <div className='h-[20rem]'>
+            <div className='h-[12rem]'>
                 <img className='h-full w-full object-cover object-left-top'
                     src={product.imageUrl}
                     alt='Loading...'
@@ -18,7 +18,7 @@ const ProductCard = ({product}) => {
                 
             </div>
 
-            <div className='textPart bg-white p-3'>
+            <div className='textPart bg-rose-50 p-3'>
                 <div>
                     <p className='font-bold opacity-60'>{product.brand}</p>
                     <p>{product.title}</p>

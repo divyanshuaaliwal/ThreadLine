@@ -213,7 +213,7 @@ export default function Product() {
 
                     </div>
 
-                    <section aria-labelledby="products-heading" className="pb-24 pt-6">
+                    <section aria-labelledby="products-heading" className="pb-10 pt-6">
                         <h2 id="products-heading" className="sr-only">
                         Products
                         </h2>
@@ -341,7 +341,7 @@ export default function Product() {
 
                             {/* Product grid */}
                             <div className="lg:col-span-4 w-full">
-                                <div className="flex justify-evenly items-center flex-wrap space-y-5">
+                                <div className="flex justify-evenly items-center flex-wrap space-y-10 space-x-7">
                                 {
                                     mens_kurta.map( (item) => <ProductCard product={item}/>)
                                 }

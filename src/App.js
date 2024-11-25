@@ -14,14 +14,10 @@ import CustomerRoutes from './Routers/CustomerRoutes';
 
 function App() {
     return (
-
         <div>
-
-         <Routes>
-            <Route path="/*" element={<CustomerRoutes/>}> </Route>
-         </Routes>
-            
-        
+            <Routes>
+                <Route path="/*" element={<CustomerRoutes/>}> </Route>
+            </Routes>
         </div>
     );
 }
