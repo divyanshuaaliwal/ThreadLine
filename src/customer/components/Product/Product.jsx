@@ -153,8 +153,8 @@ export default function Product() {
                 </Dialog>
 
                 <main className="mx-auto px-4 sm:px-6 lg:px-20">
-                                                                                                {/*     changed   changed   */}
-                    <div className="flex items-baseline justify-between border-b border-gray-200 pb-6  pt-10     lg:pt-24">
+                                                                                              
+                    <div className="flex items-baseline justify-between border-b border-gray-200 pb-6">
                         
                         <h1 className="text-4xl font-bold tracking-tight text-gray-900">New Arrivals</h1>
 
@@ -223,12 +223,16 @@ export default function Product() {
                             {/* Filters */}
                             <div>
 
-                                <div className='flex justify-between items-center py-10'>
-                                <h1 className='text-lg font-bold opacity-50 hidden sm:block'>Filters</h1>
-                                <FilterListIcon/>
+                                <div className='hidden lg:block'>
+                                    <div className='flex justify-between items-center py-10'>
+                                        <h1 className='text-lg font-bold opacity-50 hidden sm:block'>Filters</h1>
+                                        <FilterListIcon/>
+                                    </div>
                                 </div>
 
-                                {/* <div className='border p-3'> */}
+                                
+
+                                {/* <div className='border border-black p-3'> */}
                             
                                     <form className="hidden lg:block">
                                         
@@ -276,32 +280,53 @@ export default function Product() {
                                             singleFilter.map( (section) => (
 
                                                 <Disclosure key={section.id} as="div" className="border-b border-gray-200 py-6">
-                                                
+
                                                     <h3 className="-my-3 flow-root">
-                                                        <DisclosureButton className="group flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                                                            <FormLabel sx={{color:"black"}} id="demo-radio-buttons-group-label">{section.name}</FormLabel>
+                                                        <DisclosureButton className="group flex w-full items-center justify-between bg-white py-3 text-sm sm:text-base lg:text-lg text-gray-400 hover:text-gray-500 text-left">
+                                                            <FormLabel 
+                                                                sx={{ color: "black" }} 
+                                                                id="demo-radio-buttons-group-label"
+                                                                className="text-left text-xs sm:text-sm lg:text-base"
+                                                            >
+                                                                {section.name}
+                                                            </FormLabel>
                                                             <span className="ml-6 flex items-center">
-                                                            <PlusIcon aria-hidden="true" className="size-5 group-data-[open]:hidden" />
-                                                            <MinusIcon aria-hidden="true" className="size-5 [.group:not([data-open])_&]:hidden" />
+                                                                <PlusIcon aria-hidden="true" className="size-5 group-data-[open]:hidden" />
+                                                                <MinusIcon aria-hidden="true" className="size-5 [.group:not([data-open])_&]:hidden" />
                                                             </span>
                                                         </DisclosureButton>
                                                     </h3>
-                                                    
+
                                                     <DisclosurePanel className="pt-6">
                                                         <div className="space-y-4">
                                                             <FormControl>
-                                                                <RadioGroup aria-labelledby="demo-radio-buttons-group-label" defaultValue="female" name="radio-buttons-group">
+                                                                <RadioGroup 
+                                                                    aria-labelledby="demo-radio-buttons-group-label" 
+                                                                    defaultValue="female" 
+                                                                    name="radio-buttons-group"
+                                                                    className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl"
+                                                                >
                                                                     {
                                                                         section.options.map((option, optionIdx) => (
-                                                                            <>
-                                                                                <FormControlLabel onChange={ (e)=> handleRadioFilterChange(e,section.id)} value={option.value} control={<Radio />} label={option.label} />
-                                                                            </>
+                                                                            <div 
+                                                                                key={optionIdx} 
+                                                                                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-tight sm:leading-normal md:leading-relaxed flex items-center whitespace-nowrap"
+                                                                            >
+                                                                                <FormControlLabel 
+                                                                                    onChange={(e) => handleRadioFilterChange(e, section.id)} 
+                                                                                    value={option.value} 
+                                                                                    control={<Radio />} 
+                                                                                    label={option.label} 
+                                                                                    className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl whitespace-nowrap"
+                                                                                />
+                                                                            </div>
                                                                         ))
                                                                     }
                                                                 </RadioGroup>  
                                                             </FormControl>     
                                                         </div>
                                                     </DisclosurePanel>
+
                                                 
                                                 </Disclosure>
                                             ))
@@ -316,7 +341,7 @@ export default function Product() {
 
                             {/* Product grid */}
                             <div className="lg:col-span-4 w-full">
-                                <div className='flex flex-wrap justify-center bg-white py-5'>
+                                <div className="flex justify-evenly items-center flex-wrap space-y-5">
                                 {
                                     mens_kurta.map( (item) => <ProductCard product={item}/>)
                                 }
