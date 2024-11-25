@@ -97,28 +97,24 @@ export default function ProductDetails() {
     return (
         <div className="bg-white lg:px-20">
             <div className="pt-6">
-                
+
+                {/* image categories navbar */}
                 <nav aria-label="Breadcrumb">
                     <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                         {
-                            product.breadcrumbs.map((breadcrumb) => (
-                            <li key={breadcrumb.id}>
-                                <div className="flex items-center">
-                                    <a href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
-                                        {breadcrumb.name}
-                                    </a>
-                                    <svg
-                                        fill="currentColor"
-                                        width={16}
-                                        height={20}
-                                        viewBox="0 0 16 20"
-                                        aria-hidden="true"
-                                        className="h-5 w-4 text-gray-300"
-                                    >
-                                        <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
-                                    </svg>
-                                </div>
-                            </li>
+                            product.breadcrumbs.map( (breadcrumb) => (
+                                <li key={breadcrumb.id}>
+                                    <div className="flex items-center">
+                                        
+                                        <a href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
+                                            {breadcrumb.name}
+                                        </a>
+                                        
+                                        <svg fill="currentColor" width={16} height={20} viewBox="0 0 16 20" aria-hidden="true" className="h-5 w-4 text-gray-300">
+                                            <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+                                        </svg>
+                                    </div>
+                                </li>
                             ))
                         }
                         <li className="text-sm">
@@ -129,6 +125,7 @@ export default function ProductDetails() {
                     </ol>
                 </nav>
 
+                {/* Product Grid  */}
                 <section className='grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10 px-4 py-10'>
 
                
@@ -163,6 +160,8 @@ export default function ProductDetails() {
 
                     {/* Product info */}
                     <div className="lg:col-span-1 max-auto max-w-2xl px-4 pb-16 sm:px-6 lg:mx-w-7xl lg:px-8 lg:pb-24">
+
+                        {/* Product Name, Product Details */}
                         <div className="lg:col-span-2">
                             <h1 className="text-lg font-semibold lg:text-xl text-gray-900">{product.name}</h1>
                             <h1 className="text-lg lg:text-xl text-gray-900 opacity-60 pt-1">{product.details}</h1>
@@ -172,7 +171,8 @@ export default function ProductDetails() {
                         <div className="mt-4 lg:row-span-3 lg:mt-0">
 
                             <h2 className="sr-only">Product information</h2>
-
+                            
+                            {/* Rates and Discounts */}
                             <div className="flex items-center space-x-5 text-lg lg:text-xl text-gray-900 mt-6">
                                 <p className='font-semibold'>₹1990</p>
                                 <p className='opacity-50 line-through'>₹2110</p>
