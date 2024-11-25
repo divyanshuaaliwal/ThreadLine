@@ -191,33 +191,6 @@ export default function ProductDetails() {
                             <form className="mt-10">
 
 
-                                {/* Colors */}
-                                {/* <div>
-                                    <h3 className="text-sm font-medium text-gray-900">Color</h3>
-
-                                    <fieldset aria-label="Choose a color" className="mt-4">
-                                    <RadioGroup value={selectedColor} onChange={setSelectedColor} className="flex items-center space-x-3">
-                                        {product.colors.map((color) => (
-                                        <Radio
-                                            key={color.name}
-                                            value={color}
-                                            aria-label={color.name}
-                                            className={classNames(
-                                            color.selectedClass,
-                                            'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none data-[checked]:ring-2 data-[focus]:data-[checked]:ring data-[focus]:data-[checked]:ring-offset-1',
-                                            )}
-                                        >
-                                            <span
-                                            aria-hidden="true"
-                                            className={classNames(color.class, 'size-8 rounded-full border border-black/10')}
-                                            />
-                                        </Radio>
-                                        ))}
-                                    </RadioGroup>
-                                    </fieldset>
-                                </div> */}
-
-
                                 {/* Sizes */}
                                 <div className="mt-10">
                                     
@@ -274,7 +247,7 @@ export default function ProductDetails() {
 
                                 </div>
 
-                                <Button variant='contained' sx={{px:"2rem", py:"1rem", bgcolor:"#9155fd"}}
+                                <Button variant='contained' sx={{px:"2rem", mt:"20px", py:"1rem", bgcolor:"#9155fd"}}
                                     onClick={handleAddToCard}
                                 >
                                     Add to Cart
@@ -401,14 +374,15 @@ export default function ProductDetails() {
                 </section>
 
                 {/* similar Products */}
-                <section className='pt-10'>
-                    <h1 className=' text-xl font-bold' >Similar Products</h1>
-                    <div className='flex flex-wrap space-y-5'>
+                <section className="pt-10 mb-10">
+                    <h1 className="text-xl font-bold mb-5">Similar Products</h1>
+                    <div className="flex justify-evenly items-center flex-wrap space-y-5 space-x-1">
                         {
-                            mens_kurta.map( (item) => <HomeSectionCard product={item}/>)
+                            mens_kurta.map((item) => <HomeSectionCard product={item} key={item.id} />)
                         }
                     </div>
                 </section>
+
             </div>
         </div>
     )
