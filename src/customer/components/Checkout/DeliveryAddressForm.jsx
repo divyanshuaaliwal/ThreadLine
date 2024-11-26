@@ -24,12 +24,24 @@ const DeliveryAddressForm = () => {
 
     }
     return (
-        <Grid container spacing={4} >
-            <Grid xs={12} lg={5} className='border rounded-e-md shadow-md h-[30.5rem] overflow-y-scroll'>
-                <div className='p-5 py-7 border-b cursor-pointer'>
-                    <AddressCard/>
-                    <Button sx={{mt:2, bgcolor: "rgb(145,85,253)"}} size="large" variant='contained'>Deliver Here</Button>
-                </div>
+        <Grid container spacing={4}>
+
+            <Grid item xs={12} lg={5} className=''>
+
+                <Box className="border rounded-e-md shadow-md p-5">
+                    
+                    <div className="h-[17rem] sm:h-[15rem] md:h-[15rem] lg:h-[31.3rem] overflow-y-scroll" >
+                    {
+                        [1,1,1,1,1]. map ( (card,index) => 
+                            <div className="p-7 cursor-pointer hover:bg-gray-50 transition duration-200">
+                                <AddressCard index={index}/>
+                                {/* <Button sx={{mt:2, ml:0.5, bgcolor: "rgb(145,85,253)"}} size="large" variant='contained'>Deliver Here</Button> */}
+                            </div>
+                        )
+                    }
+                    </div>
+                </Box>
+               
             </Grid>
 
             <Grid item xs={12} lg={7}>
@@ -131,6 +143,7 @@ const DeliveryAddressForm = () => {
                     </form>
                 </Box>
             </Grid>
+            
         </Grid>
     )
 }
