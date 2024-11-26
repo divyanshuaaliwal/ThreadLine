@@ -1,16 +1,5 @@
 import { useState } from 'react'
-import {
-  Dialog,
-  DialogBackdrop,
-  DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-} from '@headlessui/react'
+import { Dialog, DialogBackdrop, DialogPanel, Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems} from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { mens_kurta } from '../../../Data/Men/mens_kurta'
@@ -158,7 +147,6 @@ export default function Product() {
                         
                         <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold tracking-tight text-gray-900">New Arrivals</h1>
 
-
                         <div className="flex items-center">
                             <Menu as="div" className="relative inline-block text-left">
                                 <div>
@@ -215,8 +203,9 @@ export default function Product() {
                     </div>
 
                     <section aria-labelledby="products-heading" className="pb-10 pt-6">
+                        
                         <h2 id="products-heading" className="sr-only">
-                        Products
+                            Products
                         </h2>
 
                         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
@@ -224,17 +213,14 @@ export default function Product() {
                             {/* Filters */}
                             <div>
 
-                                <div className='hidden lg:block'>
-                                    <div className='flex justify-between items-center py-10'>
+                                <div className='hidden lg:block border border-gray-100 p-3'>
+                                    <div className='flex justify-between items-center'>
                                         <h1 className='text-lg font-bold opacity-50 hidden sm:block'>Filters</h1>
                                         <FilterListIcon/>
                                     </div>
                                 </div>
 
-                                
-
-                                {/* <div className='border border-black p-3'> */}
-                            
+                                <div className='border border-gray-100 p-3 mt-1'>
                                     <form className="hidden lg:block">
                                         
                                         {
@@ -334,8 +320,7 @@ export default function Product() {
                                         }
 
                                     </form>
-
-                                {/* </div> */}
+                                </div>
 
                             </div>
 

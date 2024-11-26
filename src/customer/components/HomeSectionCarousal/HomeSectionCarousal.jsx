@@ -44,6 +44,7 @@ const CustomPrevArrow = ({ onClick, disabled }) => (
 );
 
 const HomeSectionCarousal = ({ data = [], sectionName }) => {
+    
     const [visibleItems, setVisibleItems] = useState(1);
     const [currentIndex, setCurrentIndex] = useState(0); // Track current index
     const [sliderKey, setSliderKey] = useState(0);

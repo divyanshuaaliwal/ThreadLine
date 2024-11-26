@@ -20,11 +20,12 @@
 import { useState } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { Radio, RadioGroup } from '@headlessui/react'
-import { Box, Button, Grid, LinearProgress, Rating } from '@mui/material'
+import { Box, Button, Grid, LinearProgress, Rating, Typography } from '@mui/material'
 import ProductReviewCard from './ProductReviewCard'
 import { mens_kurta } from '../../../Data/Men/mens_kurta'
 import HomeSectionCard from '../HomeSectionCard/HomeSectionCard'
 import { useNavigate } from 'react-router-dom'
+import ProductRating from './ProductRating'
 
 const product = {
     name: 'Basic Tee 6-Pack',
@@ -96,6 +97,7 @@ export default function ProductDetails() {
     }
     return (
         <div className="bg-white lg:px-20">
+            
             <div className="pt-6">
 
                 {/* image categories navbar */}
@@ -130,7 +132,6 @@ export default function ProductDetails() {
 
                
                     {/* Image gallery */}
-                    
                     <div className="flex flex-col items-center">
                         <div className='overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem]'>
                             <img
@@ -207,41 +208,43 @@ export default function ProductDetails() {
                                             onChange={setSelectedSize}
                                             className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
                                         >
-                                            {product.sizes.map((size) => (
-                                            <Radio
-                                                key={size.name}
-                                                value={size}
-                                                disabled={!size.inStock}
-                                                className={classNames(
-                                                size.inStock
-                                                    ? 'cursor-pointer bg-white text-gray-900 shadow-sm'
-                                                    : 'cursor-not-allowed bg-gray-50 text-gray-200',
-                                                'group relative flex items-center justify-center rounded-md border px-4 py-3 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-indigo-500 sm:flex-1 sm:py-6',
-                                                )}
-                                            >
-                                                <span>{size.name}</span>
-                                                {size.inStock ? (
-                                                <span
-                                                    aria-hidden="true"
-                                                    className="pointer-events-none absolute -inset-px rounded-md border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-indigo-500"
-                                                />
-                                                ) : (
-                                                <span
-                                                    aria-hidden="true"
-                                                    className="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
-                                                >
-                                                    <svg
-                                                    stroke="currentColor"
-                                                    viewBox="0 0 100 100"
-                                                    preserveAspectRatio="none"
-                                                    className="absolute inset-0 size-full stroke-2 text-gray-200"
+                                            {
+                                                product.sizes.map((size) => (
+                                                    <Radio
+                                                        key={size.name}
+                                                        value={size}
+                                                        disabled={!size.inStock}
+                                                        className={classNames( size.inStock ? 'cursor-pointer bg-white text-gray-900 shadow-sm'
+                                                            : 'cursor-not-allowed bg-gray-50 text-gray-200',
+                                                        '   group relative flex items-center justify-center rounded-md border px-4 py-3 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-indigo-500 sm:flex-1 sm:py-6',
+                                                        )}
                                                     >
-                                                    <line x1={0} x2={100} y1={100} y2={0} vectorEffect="non-scaling-stroke" />
-                                                    </svg>
-                                                </span>
-                                                )}
-                                            </Radio>
-                                            ))}
+                                                        <span>{size.name}</span>
+                                                        {
+                                                            size.inStock ? (
+                                                                <span
+                                                                    aria-hidden="true"
+                                                                    className="pointer-events-none absolute -inset-px rounded-md border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-indigo-500"
+                                                                />
+                                                            ) : (
+                                                                <span
+                                                                    aria-hidden="true"
+                                                                    className="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
+                                                                >
+                                                                    <svg
+                                                                    stroke="currentColor"
+                                                                    viewBox="0 0 100 100"
+                                                                    preserveAspectRatio="none"
+                                                                    className="absolute inset-0 size-full stroke-2 text-gray-200"
+                                                                    >
+                                                                    <line x1={0} x2={100} y1={100} y2={0} vectorEffect="non-scaling-stroke" />
+                                                                    </svg>
+                                                                </span>
+                                                            )
+                                                        }
+                                                    </Radio>
+                                                ))
+                                            }
                                         </RadioGroup>
                                     </fieldset>
 
@@ -292,90 +295,31 @@ export default function ProductDetails() {
 
                 </section>
 
-                {/* rating and reviews */}
-                <section>
-                    <h1 className='font-semibold text-lg pb-4'>Recent Review & Rating</h1>
 
-                    <div className='border p-5'>
-                        <Grid container spacing={7}>
-
-                            <Grid item xs={7}>
-                                <div className='space-y-5'>
+                {/* Rating and Review */}
+                <section className="px-4 py-10">
+                    <Typography variant="h5" className="font-semibold pb-4">Recent Review & Rating</Typography>
+                    <div className="p-3 md:p-5">
+                        <Grid container spacing={4}>
+                            {/* Reviews Section */}
+                            <Grid item xs={12} md={7}>
+                                <div className="space-y-3 md:space-y-5">
                                     {
-                                       [1,1,1,1,1].map( (item) => <ProductReviewCard/> )
+                                        [1, 1, 1, 1, 1].map((_, index) => ( <ProductReviewCard key={index} /> ))
                                     }
                                 </div>
                             </Grid>
 
-                            <Grid item xs={5}>
-                                <h1 className='font-semibold pb-2 text-xl'>Product Rating</h1>
-
-                                <div className='flex items-center space-x-3'>
-                                    <Rating  value={4.6} precision={0.5} readOnly></Rating>
-                                    <p className='opacity-60'>5948 Ratings</p>
-                                </div>
-
-                                <Box className="mt-5 space-y-3">
-
-                                    <Grid container alignItems="center" gap={2}>
-                                        <Grid item xs={2}>
-                                            <p>Excellent</p>
-                                        </Grid>
-                                        
-                                        <Grid item xs={7}>
-                                            <LinearProgress sx={{bgcolor:"#d0d0d0", borderRadius:4, height:7}} variant='determinate' value={40} color='success'/>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid container alignItems="center" gap={2}>
-                                        <Grid item xs={2}>
-                                            <p>Very Good</p>
-                                        </Grid>
-                                        
-                                        <Grid item xs={7}>
-                                            <LinearProgress sx={{bgcolor:"#d0d0d0", borderRadius:4, height:7}} variant='determinate' value={30} color='success'/>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid container alignItems="center" gap={2}>
-                                        <Grid item xs={2}>
-                                            <p>Good</p>
-                                        </Grid>
-                                        
-                                        <Grid item xs={7}>
-                                            <LinearProgress sx={{bgcolor:"#d0d0d0", borderRadius:4, height:7, color:"yellow"}} variant='determinate' value={25} />
-                                        </Grid>
-                                    </Grid>
-                                    <Grid container alignItems="center" gap={2}>
-                                        <Grid item xs={2}>
-                                            <p>Average</p>
-                                        </Grid>
-                                        
-                                        <Grid item xs={7}>
-                                            <LinearProgress sx={{bgcolor:"#d0d0d0", borderRadius:4, height:7}} variant='determinate' value={20} color='warning'/>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid container alignItems="center" gap={2}>
-                                        <Grid item xs={2}>
-                                            <p>Poor</p>
-                                        </Grid>
-                                        
-                                        <Grid item xs={7}>
-                                            <LinearProgress sx={{bgcolor:"#d0d0d0", borderRadius:4, height:7}} variant='determinate' value={15} color='error'/>
-                                        </Grid>
-                                    </Grid>
-                                    
-                                </Box>
-
-                                
-                            </Grid>
-
+                            {/* Ratings Section */}
+                            <ProductRating />
                         </Grid>
                     </div>
-                    
                 </section>
+            
 
                 {/* similar Products */}
-                <section className="pt-10 mb-10">
-                    <h1 className="text-xl font-bold mb-5">Similar Products</h1>
+                <section className="pt-10 px-4 py-10 mb-10 border">
+                    <Typography variant="h5" className="font-semibold pb-4">Similar Products</Typography>
                     <div className="flex justify-evenly items-center flex-wrap space-y-5 space-x-1">
                         {
                             mens_kurta.map((item) => <HomeSectionCard product={item} key={item.id} />)

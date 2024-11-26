@@ -12,10 +12,9 @@ const HomePage = () => {
 
             <div className="flex flex-col justify-center py-20 px-5 lg:px-10 space-y-10"> 
                 <HomeSectionCarousal data = {mens_kurta} sectionName={"Men's Kurta"} /> 
-                <HomeSectionCarousal data = {mens_kurta} sectionName={"Men's Shoes"} /> 
-                <HomeSectionCarousal data = {mens_kurta} sectionName={"Men's Shirt"} /> 
-                <HomeSectionCarousal data = {mens_kurta} sectionName={"Women's Saree"} /> 
-                <HomeSectionCarousal data = {mens_kurta} sectionName={"Women's Dress"} /> 
+                <HomeSectionCarousal data = {mens_kurta} sectionName={"Men's Kurta"} /> 
+                <HomeSectionCarousal data = {mens_kurta} sectionName={"Men's Kurta"} /> 
+                <HomeSectionCarousal data = {mens_kurta} sectionName={"Men's Kurta"} /> 
             </div>
 
 
