@@ -14,6 +14,7 @@ const steps = ['Login', 'Delivery Address', 'Order Summary', 'Payment'];
 export default function Checkout() {
 
     const [activeStep, setActiveStep] = React.useState(0);
+    
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -44,13 +45,14 @@ export default function Checkout() {
     };
 
     return (
-                                       // changed 
+                                       
         <div className="px-10 lg:px-20 py-10">
+
             <Box sx={{ width: '100%' }}>
                 
                 <Stepper activeStep={activeStep}>
                     {
-                        steps.map((label, index) => (
+                        steps.map( (label, index) => (
                             <Step key={label}>
                                 <StepLabel>{label}</StepLabel>
                             </Step>
@@ -59,16 +61,16 @@ export default function Checkout() {
                 </Stepper>
 
                 {
-                    activeStep === steps.length ? 
-                    (
+                    activeStep === steps.length ? (
+
                         <React.Fragment>
                             <Typography sx={{ mt: 2, mb: 1 }}>
                                 All steps completed - you&apos;re finished
                             </Typography>
                         </React.Fragment>
-                    ) 
-                    : 
-                    (
+
+                    ) : (
+
                         <React.Fragment>
                             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                                 <Button
@@ -91,6 +93,7 @@ export default function Checkout() {
                     )
                 }
             </Box>
+
         </div>
     );
 }
