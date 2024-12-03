@@ -64,9 +64,19 @@ export default function Checkout() {
                     activeStep === steps.length ? (
 
                         <React.Fragment>
-                            <Typography sx={{ mt: 2, mb: 1 }}>
-                                All steps completed - you&apos;re finished
+                           <Typography
+                            sx={{
+                                mt: 2, 
+                                mb: 1,
+                                color: 'blue', // Change text color to blue
+                                fontWeight: 'bold', // Make the text bold
+                                fontSize: '18px', // Adjust font size
+                                textAlign: 'center', // Center-align the text
+                            }}
+                            >
+                            All steps completed - you&apos;re finished
                             </Typography>
+
                         </React.Fragment>
 
                     ) : (

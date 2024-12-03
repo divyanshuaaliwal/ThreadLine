@@ -3,7 +3,7 @@ import React from 'react';
 
 const AddressCard = ({index}) => {
     return (
-        <article className="rounded-xl bg-white p-4 ring ring-indigo-50 sm:p-6 lg:p-8">
+        <div className="rounded-xl bg-white p-4 ring ring-indigo-50 sm:p-6 lg:p-8">
             <div className="flex flex-col sm:flex-row items-start sm:gap-8">
                 
                 <div className="flex-1">
@@ -34,7 +34,7 @@ const AddressCard = ({index}) => {
                 </div>
 
             </div>
-        </article>
+        </div>
 
     );
 };

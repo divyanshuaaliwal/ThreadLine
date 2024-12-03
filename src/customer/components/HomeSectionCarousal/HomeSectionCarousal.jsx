@@ -113,7 +113,7 @@ const HomeSectionCarousal = ({ data = [], sectionName }) => {
 
     return (
         <div className="border">
-            <h2 className="text-2xl font-extrabold text-gray-800 py-5">{sectionName}</h2>
+            <h2 className="text-2xl font-extrabold text-gray-800 text-center py-5">{sectionName}</h2>
             <div className="relative p-5">
                 <Slider {...settings} ref={sliderRef}>
                     {items}

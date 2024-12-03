@@ -13,7 +13,7 @@ const orderStatus = [
 const Order = () => {
    
     return (
-                                    // changed
+                                
         <div className='lg:px-20 px-5 pt-10'>
             
             <Grid container sx={{justifyContent:"space-between"}}>
