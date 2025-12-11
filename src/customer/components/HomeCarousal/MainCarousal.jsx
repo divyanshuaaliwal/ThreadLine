@@ -14,25 +14,29 @@ import { MainCarouselData } from './MainCarousalData';
 const MainCarousal = () => {
     
     const coursalImages = MainCarouselData.map(  (item) => 
-        <img className='cursor-pointer -z-10'  src={item.image} alt='' role='presentation'/>
-    );
+ <img
+    className="cursor-pointer w-full"
+    src={item.image}
+    alt=""
+    role="presentation"
+    style={{
+      objectFit: "cover",
+    }}
+  />    );
 
     
     return (
         
-        <AliceCarousel
-            
-            items={coursalImages}
-            disableButtonsControls
-            autoPlay
-            autoPlayInterval={1000}
-            infinite
+    <div style={{ height: "83vh", overflow: "hidden" }}>
+  <AliceCarousel
+    items={coursalImages}
+    disableButtonsControls
+    autoPlay
+    autoPlayInterval={1000}
+   
+  />
+</div>
 
-            // responsive={responsive}
-            // controlsStrategy="alternate"
-            // mouseTracking
-            // disableDotsControls
-        />
     )
     
 };
